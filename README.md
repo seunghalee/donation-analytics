@@ -42,7 +42,7 @@ The solution was written under the assumption that the data is streaming in. As 
 The above six fields are then written out onto a pipe-delimited line and then saved to an output file called `repeat_donors.txt`
 
 
-# Repo directory structure
+# Repo Directory Structure
 
 The directory structure for this repo looks like this:
 
