@@ -68,11 +68,12 @@ The directory structure for this repo looks like this:
                 ├── input
                 │   └── percentile.txt
                 |   └── itcont.txt
+                |── output
+                |    └── repeat_donors.txt
                 test_3
                 ├── input
                 │   └── percentile.txt
                 |   └── itcont.txt
-                |   
                 |── output
                     └── repeat_donors.txt
 
