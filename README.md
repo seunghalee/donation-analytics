@@ -3,7 +3,7 @@
 2. [Input Data Source](README.md#input-data-source)
 3. [Solution Requirements](README.md#solution-requirements)
 4. [Approach](README.md#approach)
-5. [Repo directory structure](README.md#repo-directory-structure)
+5. [Repo Directory Structure](README.md#repo-directory-structure)
 
 # Challenge Prompt
 For each recipient, zip code, and calendar year, calculate the following three values for contributions coming from repeat donors:
@@ -12,7 +12,7 @@ For each recipient, zip code, and calendar year, calculate the following three v
 * donation amount given in percentile
 
 Given two input files:
-1. `percentile.txt`, holds a single value -- the percentile value (1-100) that your program will be asked to calculate.
+1. `percentile.txt`, holds a single value -- the percentile value (1-100) the program will calculate.
 2. `itcont.txt`, has a line for each campaign contribution that was made on a particular date from a donor to a political campaign, committee or other similar entity. 
 
 # Input Data Source 
@@ -27,10 +27,10 @@ Fields of Interest:
 * `OTHER_ID`: a field that denotes whether contribution came from a person or an entity 
 
 # Solution Requriments
-Solution was written in Python 3.6.3 and requires datetime, os, sys, and math modules.
+Solution was written in `Python 3.6.3` and requires `datetime`, `os`, `sys`, and `math` modules.
 
 # Approach
-The solution was written under the assumption that the data is streaming in. As each line of `itcont.txt` is read, the pipe-delimited fields are checked to make sure we want to use that particular record -- records with empty or malformed fields with respect to `CMTE_ID`, `NAME`, `ZIP_CODE`, `TRANSACTION_DT`, `TRANSACTION_AMT`, `OTHER_ID` are completely ignored. If the record is one that we are interested in, the program formats fields of interest appropriately (if necessary). For example, the transaction date, which is in a string format in the input file, is formatted so it is a datetime.datetime object, and any zip codes that are longer than 5-digits are truncated. Each record is assigned a unique donor ID consisting of the donor's name and 5-digit zip code (per challenge instructions, donation records with idential names and zip codes are considered to be from the same donor). A set is created consisting of all previous donor IDs to check if a particular donor is a repeat donor. A dictionary is also created to keep track of calendar years associated with each donor ID. If a donor is a repeat donor, and the particular donation was made later than existing donation records (need to check this because the data be streamed in out of order), the program computes the following fields:
+The solution was written under the assumption that the data is streaming in. As each line of `itcont.txt` is read, the pipe-delimited fields are checked to make sure each record contains all the fields of interest-- records with empty or malformed fields with respect to `CMTE_ID`, `NAME`, `ZIP_CODE`, `TRANSACTION_DT`, `TRANSACTION_AMT`, `OTHER_ID` are completely ignored. Once the malformed records are filtered out, the program formats fields of interest appropriately (if necessary). For example, the transaction date, which is in a string format in the input file, is formatted so it is a datetime.datetime object, and any zip codes that are longer than 5-digits are truncated. Each record is assigned a unique donor ID consisting of the donor's name and 5-digit zip code (per challenge instructions, donation records with idential names and zip codes are considered to be from the same donor). A Python set is created consisting of all previous donor IDs to check if a particular donor is a repeat donor. A Python dictionary is also created to keep track of calendar years associated with each donor ID. If a donor is a repeat donor, and the particular donation was made later than existing donation records (this needs to checked because the data streaming in can be out of order), the program computes the following fields:
 
 * recipient of the contribution (or `CMTE_ID` from the input file)
 * 5-digit zip code of the contributor (or the first five characters of the `ZIP_CODE` field from the input file)
@@ -67,7 +67,11 @@ The directory structure for this repo looks like this:
             ├── test_2
                 ├── input
                 │   └── percentile.txt
-                |   └── your-own-input-for-itcont.txt
+                |   └── itcont.txt
+                test_3
+                ├── input
+                │   └── percentile.txt
+                |   └── itcont.txt
                 |   
                 |── output
                     └── repeat_donors.txt
