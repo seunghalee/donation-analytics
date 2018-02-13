@@ -27,7 +27,7 @@ Fields of Interest:
 * `OTHER_ID`: a field that denotes whether contribution came from a person or an entity 
 
 # Program Requirements
-This program was written in `Python 3.6.3` and requires `datetime`, `os`, `sys`, and `math` modules.
+This program was written in `Python 3.6.4` and requires `datetime`, `os`, `sys`, and `math` modules.
 
 # Approach
 The program was written under the assumption that the data is streaming in. As each line of `itcont.txt` is read, the pipe-delimited fields are checked to make sure each record contains all the fields of interest-- records with empty or malformed fields with respect to `CMTE_ID`, `NAME`, `ZIP_CODE`, `TRANSACTION_DT`, `TRANSACTION_AMT`, `OTHER_ID` are completely ignored. Once the malformed records are filtered out, the program formats fields of interest appropriately (if necessary). For example, the transaction date, which is in a string format in the input file, is formatted so it is a datetime.datetime object, and any zip codes that are longer than 5-digits are truncated. Each record is assigned a unique donor ID consisting of the donor's name and 5-digit zip code (per challenge instructions, donation records with idential names and zip codes are considered to be from the same donor). A Python set is created consisting of all previous donor IDs to check if a particular donor is a repeat donor. A Python dictionary is also created to keep track of calendar years associated with each donor ID. If a donor is a repeat donor, and the particular donation was made later than existing donation records (this needs to checked because the data streaming in can be out of order), the program computes the following fields:
