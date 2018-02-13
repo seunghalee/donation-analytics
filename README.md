@@ -1,7 +1,7 @@
 # Table of Contents
 1. [Challenge Prompt](README.md#challenge-prompt)
 2. [Input Data Source](README.md#input-data-source)
-3. [Solution Requirements](README.md#solution-requirements)
+3. [Program Requirements](README.md#program-requirements)
 4. [Approach](README.md#approach)
 5. [Repo Directory Structure](README.md#repo-directory-structure)
 
