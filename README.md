@@ -16,7 +16,7 @@ Given two input files:
 2. `itcont.txt`, has a line for each campaign contribution that was made on a particular date from a donor to a political campaign, committee or other similar entity. 
 
 # Input Data Source 
-The Federal Election Commission provides data files stretching back years and is [regularly updated](http://classic.fec.gov/finance/disclosure/ftpdet.shtml). Data files conform to the data dictionary [as described by the FEC](http://classic.fec.gov/finance/disclosure/metadata/DataDictionaryContributionsbyIndividuals.shtml).
+The input data source was the Federal Election Commission, which provides data files stretching back years and is [regularly updated](http://classic.fec.gov/finance/disclosure/ftpdet.shtml). Data files conform to the data dictionary [as described by the FEC](http://classic.fec.gov/finance/disclosure/metadata/DataDictionaryContributionsbyIndividuals.shtml).
 
 Fields of Interest:
 * `CMTE_ID`: identifies the flier, which for our purposes is the recipient of this contribution
@@ -26,7 +26,7 @@ Fields of Interest:
 * `TRANSACTION_AMT`: amount of the transaction
 * `OTHER_ID`: a field that denotes whether contribution came from a person or an entity 
 
-# Solution Requriments
+# Solution Requirements
 Solution was written in `Python 3.6.3` and requires `datetime`, `os`, `sys`, and `math` modules.
 
 # Approach
