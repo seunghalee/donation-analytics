@@ -19,7 +19,7 @@ Given two input files:
 The input data source was the Federal Election Commission, which provides data files stretching back years and is [regularly updated](http://classic.fec.gov/finance/disclosure/ftpdet.shtml). Data files conform to the data dictionary [as described by the FEC](http://classic.fec.gov/finance/disclosure/metadata/DataDictionaryContributionsbyIndividuals.shtml).
 
 Fields of Interest:
-* `CMTE_ID`: identifies the flier, which for our purposes is the recipient of this contribution
+* `CMTE_ID`: identifies the filer, which for our purposes is the recipient of this contribution
 * `NAME`: name of the donor
 * `ZIP_CODE`:  zip code of the contributor (we only want the first five digits/characters)
 * `TRANSACTION_DT`: date of the transaction
